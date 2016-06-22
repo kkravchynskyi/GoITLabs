@@ -7,43 +7,43 @@ public class RunTasks {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		double x;
 		// task1
-		geometricFigures geom = new geometricFigures();
+		//Создать класс, вычисляющий площадь простых геометрических фигур: треугольника, прямоугольника и круга.
+		
+		Figures f = null; 
 		Scanner scan = new Scanner(System.in);
-		System.out.println("введите три значения -стороны треугольника / стороны прямоугольника / радиус");
-		System.out.println("a = ");
-		x = scan.nextDouble();
-		geom.setA(x);;
-		System.out.println("b = ");
-		x = scan.nextDouble();
-		geom.setB(x);
-		System.out.println("c = ");
-		x = scan.nextDouble();
-		geom.setC(x);
-		geom.setKey(3);
-		geom.slove();
-		System.out.println(geom.toString());
-		geom.setKey(1);
-		geom.slove();
-		System.out.println(geom.toString());
-		geom.setKey(2);
-		geom.slove();
-		System.out.println(geom.toString());
+		System.out.println("Выбор фигуры: 1 - круг, 2 - треугольник, 3 - прямоугольник " );
+		int i = scan.nextInt();
+		 switch(i){
+	   	 case 1: f = new Cicle();  
+	   		 	break;
+	   	case 2:  f = new Triangle();	   	
+		 	    break;
+	   	case 3: f = new Rectangle();	   	         
+		 	break;	
+		 }	 		
+		f.inputData();
+		f.slove();
+		System.out.println(f);
+		
 		// task2
-		Forengeyt forent = new Forengeyt();
-		System.out.println("введите значении температуры в форенгейтах " );
-		x = scan.nextDouble();		
-		forent.setForengeyt(x);
-		forent.setKey(1);
-		forent.slove();
-		System.out.println(forent);
-		System.out.println("введите значении температуры в цельсии " );
-		x = scan.nextDouble();		
-		forent.setCelsiy(x);
-		forent.setKey(0);
-		forent.slove();
-		System.out.println(forent);
+		//Создать класс преобразующий значение температуры по шкале Цельсия в значение по шкале Фаренгейта и в обратном направлении.
+		
+		Temperature t = null;
+		System.out.println("Выбор вида температуры 1 - в форенгейтах, 2 - в градусах цельсия " );
+		i = scan.nextInt();
+		 switch(i){
+	   	 case 1: t = new Celsius();  
+	   		 	break;
+	   	case 2:  t = new Fahrenheit();	   	
+		 	    break;
+		 } 	    
+		 t.inputData();
+		 t.slove();
+		System.out.println(t);
+		
+		// task3
+		// Создать класс вычисляющий расстояние между двумя точками, представленными координатами в двумерном пространстве (x1, y1), (x2, y2).
 		
   
 	}
