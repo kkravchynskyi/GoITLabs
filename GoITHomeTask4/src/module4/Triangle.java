@@ -9,7 +9,6 @@ public class Triangle extends Figures {
 	
 
 	public Triangle() {
-		super();
 		// TODO Auto-generated constructor stub
 		super.setNameFigures("triangle");
 	}
@@ -39,7 +38,7 @@ public class Triangle extends Figures {
 	}
 
 	@Override
-	void slove() {
+	void calculate() {
 		// TODO Auto-generated method stub
 		setArea(Math.sqrt((a*a) + (b*b) + (c*c)));		
 	}

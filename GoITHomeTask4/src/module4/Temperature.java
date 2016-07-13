@@ -18,7 +18,7 @@ public abstract class Temperature {
 		this.typeTemperature = typeTemperature;
 	}
 		
-    abstract void slove();
+    abstract void calculate();
 	
 	
 	@Override

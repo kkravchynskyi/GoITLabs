@@ -28,31 +28,24 @@ public class UtilsModuleFive {
 	
 	public static void printArray(WorksWithArray arr){
 		System.out.println(" Array : ");
-		System.out.print("[");
-		for(int i=0; i < arr.getSizeArray(); i++){
-			if((i+1)< arr.getSizeArray())
-			    System.out.print(arr.getElelementArray(i) + ", ");
-			else 
-				System.out.println(arr.getElelementArray(i) + "] ");
-		}
+		arrayToString(arr);
 	}
 	
 	public static void printSortArray(WorksWithArray arr){
 		System.out.println(" Sorted array : ");
+		arrayToString(arr);		
+	}
+	
+	public static void arrayToString(WorksWithArray arr){
 		System.out.print("[");
-		for(int i=0; i < arr.getSizeArray(); i++){
-			if((i+1)< arr.getSizeArray())
+		for(int i=0; i < arr.getSizeArray()-1; i++){			
 			    System.out.print(arr.getElelementArray(i) + ", ");
-			else 
-				System.out.println(arr.getElelementArray(i) + "] ");
 		}
+		System.out.println(arr.getElelementArray(arr.getSizeArray()-1) + "] ");		
 	}
 	
 	public static void  printMinMax(WorksWithArray arr){
-		System.out.println("Min and Max array : ");
-		printArray(arr);
-		System.out.println(" is : Min = " + arr.getMin() + 
-				 " , Max = " + arr.getMax());
+		System.out.println("Min and Max array  is : Min = " + arr.getMin() +  " , Max = " + arr.getMax());
 	}
 	
 	

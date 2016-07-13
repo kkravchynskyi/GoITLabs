@@ -6,7 +6,6 @@ public class Cicle extends Figures {
 	private double radius;
 			
 	public Cicle() {
-		super();
 		// TODO Auto-generated constructor stub
 		super.setNameFigures("cicle");
 	}
@@ -20,7 +19,7 @@ public class Cicle extends Figures {
 	}
 
 	@Override
-	void slove() {
+	void calculate() {
 		// TODO Auto-generated method stub		 
 		setArea (PI * (radius*radius));
 	}

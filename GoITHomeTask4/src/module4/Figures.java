@@ -23,7 +23,7 @@ public abstract class Figures {
 		this.nameFigures = nameFigures;
 	}
 
-	abstract void slove();
+	abstract void calculate();
 	
 	
 	@Override

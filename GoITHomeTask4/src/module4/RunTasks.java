@@ -25,7 +25,7 @@ public class RunTasks {
 		 	    break;	
 		 }
 		 
-		f.slove();
+		f.calculate();
 		System.out.println(f);
 		
 		// task2			
@@ -40,7 +40,7 @@ public class RunTasks {
 	   	         UtilsModuleFour.inputDataTemperature((Fahrenheit) t); 
 		 	    break;
 		 } 	    
-		 t.slove();
+		 t.calculate();
 		System.out.println(t);
 		
 		

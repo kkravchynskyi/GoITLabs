@@ -8,7 +8,6 @@ public class Rectangle extends Figures {
 	
 	
 	public Rectangle() {
-		super();
 		// TODO Auto-generated constructor stub
 		super.setNameFigures("rectngle");
 	}
@@ -30,7 +29,7 @@ public class Rectangle extends Figures {
 	}
 
 	@Override
-	void slove() {
+	void calculate() {
 		// TODO Auto-generated method stub
 		setArea(a*b);
 	}
