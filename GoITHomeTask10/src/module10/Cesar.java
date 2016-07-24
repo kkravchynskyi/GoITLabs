@@ -7,12 +7,11 @@ import java.util.List;
 
 public class Cesar {
 	
-	List<Character> codeChar = new ArrayList<Character>();
+	public static List<Character> codeChar = new ArrayList<Character>();
 	private final static char[] SYMBOLS = {'.', ',', ';', ':', 
 		                         '!', '?', '-', ' '};
 		
-	public Cesar() {
-		// Russion
+	static{
 		for (char c = 'а'; c <= 'я'; c++) {
 			codeChar.add(c);
         }
@@ -34,59 +33,40 @@ public class Cesar {
 			 codeChar.add(c);
          }	 
 	}
-	
-	// coding
-	String crypt(String text, int m, int k) {
-        int n = codeChar.size();
-        m = m % n;
-        k = k % n;
-        if (nod(n, m) != 1) {
-            return null;
-        }
-        StringBuilder cryptogram = new StringBuilder();
-        for (int i = 0; i < text.length(); i++) {
-            char c = text.charAt(i);
-            int index = codeChar.indexOf(c);
-            index = (index * m + k) % n;
-            cryptogram.append(codeChar.get(index));
-        }
-        return cryptogram.toString();
-    }
-	
-	//decoding
-	public String decrypt(String text, int m, int k){
-        int n = codeChar.size();
-        m = m % n;
-        k = k % n;
-        int reversedM = -1;
-        for (int i = 0; i < n; i++) {
-            if ((i * m) % n == 1) {
-                reversedM = i;
-                break;
-            }
-        }
-        StringBuilder newText = new StringBuilder();
-        for (int i = 0; i < text.length(); i++) {
-            char c = text.charAt(i);
-            int index = codeChar.indexOf(c);
-            index = (((index - k) * reversedM) % n + n) % n;
-            newText.append(codeChar.get(index));
-        }
-        return newText.toString();
-
-    }
 
 
-	private static int nod(int a, int b) {
-        while (a > 0 && b > 0) {
-            if (a > b) {
-                a %= b;
-            } else {
-                b %= a;
-            }
-        }
-        return a + b;
-    }
-
-
+	String cryptoCesar(String text, int m, int k, int key){
+		 int n = codeChar.size();
+		 int reversedM = -1;
+	        m = m % n;
+	        k = k % n;
+	        if(key == 0){
+	        	if (UtilsModule10.nod(n, m) != 1) {
+	        		return null;
+	        	}
+	        } else{
+	             for (int i = 0; i < n; i++) {
+	                 if ((i * m) % n == 1) {
+	                     reversedM = i;
+	                     break;
+	                 }
+	             }
+	        }
+	        StringBuilder newText = new StringBuilder();
+	        StringBuilder cryptogram = new StringBuilder();
+	        for (int i = 0; i < text.length(); i++) {
+	            char c = text.charAt(i);
+	            int index = codeChar.indexOf(c);
+	            if (key == 0){
+	            	index = (index * m + k) % n;
+	                cryptogram.append(codeChar.get(index));
+	            } else {
+	            	index = (((index - k) * reversedM) % n + n) % n;
+	                newText.append(codeChar.get(index));
+	            }
+	        } 
+	        if (key == 0) return cryptogram.toString();
+	        else  return newText.toString();	        
+	}
+		
 }

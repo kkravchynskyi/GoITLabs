@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class UtilsModule10 {
 	
+	@SuppressWarnings("resource")
 	public static String inputText(){
 		String str = "";
 		Scanner scan = new Scanner(System.in);
@@ -34,5 +35,16 @@ public class UtilsModule10 {
 		}
 		return str;
 	}
+	
+	public static int nod(int a, int b) {
+        while (a > 0 && b > 0) {
+            if (a > b) {
+                a %= b;
+            } else {
+                b %= a;
+            }
+        }
+        return a + b;
+    }
 
 }

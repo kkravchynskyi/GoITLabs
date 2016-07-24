@@ -1,5 +1,7 @@
 package module6;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MusicalShop {
@@ -43,6 +45,41 @@ public class MusicalShop {
 		str = "Remove instruments from shop " + removeOrder.toString();		
 		return str;
 	}
+	
+    public List<MusicalInstrument> prepareOrder(HashMap<String, Integer> order) {
+		
+		Integer numberOfGuitarToRemove = order.get("guitar"); 
+		if ((numberOfGuitarToRemove == null)||(numberOfGuitarToRemove < 0) )numberOfGuitarToRemove = 0;
+		Integer numberOfPianoToRemove = order.get("piano");
+		if ((numberOfPianoToRemove == null)||(numberOfGuitarToRemove < 0)) numberOfPianoToRemove = 0;
+		Integer numberOfTrumpetToRemove = order.get("trumpet");
+		if ((numberOfTrumpetToRemove == null)||(numberOfGuitarToRemove < 0) ) numberOfTrumpetToRemove = 0;
+		
+		
+        if (getGuitars() < numberOfGuitarToRemove) throw new IllegalStateException();
+        if (getTrumpets() < numberOfTrumpetToRemove) throw new IllegalStateException();
+        if (getPianos() < numberOfPianoToRemove) throw new IllegalStateException();
+        
+        
+        setGuitars(getGuitars() -  numberOfGuitarToRemove);
+        setPianos(getPianos() - numberOfPianoToRemove);
+        setTrumpets(getTrumpets() - numberOfTrumpetToRemove);
+        
+        
+        List<MusicalInstrument> result = new ArrayList<>();
+        for (int i = 0; i < numberOfGuitarToRemove; i++) {
+            result.add(new Guitar());
+        }
+        for (int i = 0; i < numberOfPianoToRemove; i++) {
+            result.add(new Piano());
+        }
+        
+        for (int i = 0; i < numberOfTrumpetToRemove; i++) {
+            result.add(new Trumpet());
+        }
+        
+        return result;
+    }
 	
 	
 }
